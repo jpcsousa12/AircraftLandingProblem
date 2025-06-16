@@ -46,16 +46,3 @@ subject to {
     }
   }
 }
-
-execute {
-  var out = new IloOplOutputFile("solution.txt");
-
-  out.writeln("obj = ", cp.getObjValue());
-  out.writeln("x = ", x);
-  out.writeln("r = ", r);
-  out.writeln("alpha = ", alpha);
-  out.writeln("beta = ", beta);
-  out.close();
-
-
-}
