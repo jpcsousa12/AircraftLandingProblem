@@ -20,6 +20,11 @@ dvar int r[PLANES];                       // Runway assignment
 dvar int+ alpha[PLANES];                  // Earliness
 dvar int+ beta[PLANES];                   // Lateness
 
+execute {
+    cp.param.timelimit = 60; // set time limit in seconds
+}
+
+
 // -------- Objective --------
 minimize sum(i in PLANES) (gi[i] * alpha[i] + hi[i] * beta[i]);
 
@@ -46,3 +51,4 @@ subject to {
     }
   }
 }
+

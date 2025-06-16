@@ -33,6 +33,10 @@ dvar boolean y[PLANES][PLANES];        // 1 if i lands before j (y_ij in math fo
 dvar boolean gamma[PLANES][RUNWAYS];   // 1 if plane i lands on runway r (gamma_ir in math formulation)
 dvar boolean delta[PLANES][PLANES];    // 1 if i and j land on the same runway (z_ij in math formulation)
 
+execute {
+    cplex.tilim = 60; // set time limit in seconds
+}
+
 // ---------------------------
 // Objective
 // ---------------------------

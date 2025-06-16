@@ -2,7 +2,7 @@ import subprocess
 import os
 import csv
 
-from helpers import extract_milp_kpis, extract_cp_kpis
+from helpers.extract_kpis import extract_milp_kpis, extract_cp_kpis
 
 def run_opl_model(mod_file, dat_file, oplrun_path="oplrun"):
     command = [oplrun_path, mod_file, dat_file]
@@ -41,10 +41,11 @@ cp_header_written = False
 
 for model in models:
     for s in range(1, 9):
-        for runway in range(1, 4):
+        for runway in range(1, 5):
             print(model, s, runway)
             set_r_value(f'./data/airland{s}.dat', runway)
             output, error = run_opl_model('./models/' + model, f'./data/airland{s}.dat')
+            print(output)
 
             if model == "ClassicalMILP.mod":
                 kpis = extract_milp_kpis(output)
