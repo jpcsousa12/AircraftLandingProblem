@@ -39,7 +39,7 @@ for filename in [milp_file, cp_file]:
 milp_header_written = False
 cp_header_written = False
 
-for model in models:
+for model in ["ConstraintProgramming.mod"]:
     for s in range(1, 9):
         for runway in range(1, 5):
             print(model, s, runway)
